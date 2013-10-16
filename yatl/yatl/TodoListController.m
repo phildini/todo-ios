@@ -7,6 +7,7 @@
 //
 
 #import "TodoListController.h"
+#import "TodoCell.h"
 
 @interface TodoListController ()
 
@@ -26,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UINib *todoCellNib = [UINib nibWithNibName:@"TodoCell" bundle:nil];
+    [self.tableView registerNib:todoCellNib forCellReuseIdentifier:@"TodoCell"];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -36,7 +40,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,14 +64,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    static NSString *CellIdentifier = @"TodoCell";
+    TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.todos objectAtIndex:indexPath.row];
-    
+//    cell.textLabel.text = [self.todos objectAtIndex:indexPath.row];
+    cell.todoLabel.text = [self.todos objectAtIndex:indexPath.row];
     return cell;
 }
 

@@ -21,6 +21,8 @@
 		69BDCC4F180E52EE00B0965F /* yatlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BDCC4E180E52EE00B0965F /* yatlTests.m */; };
 		69BDCC5B180E531100B0965F /* TodoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BDCC59180E531100B0965F /* TodoListController.m */; };
 		69BDCC5C180E531100B0965F /* TodoListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BDCC5A180E531100B0965F /* TodoListController.xib */; };
+		69BDCC5F180F16A200B0965F /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BDCC5E180F16A200B0965F /* TodoCell.m */; };
+		69BDCC61180F2DE100B0965F /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69BDCC60180F2DE100B0965F /* TodoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		69BDCC58180E531100B0965F /* TodoListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoListController.h; sourceTree = "<group>"; };
 		69BDCC59180E531100B0965F /* TodoListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoListController.m; sourceTree = "<group>"; };
 		69BDCC5A180E531100B0965F /* TodoListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoListController.xib; sourceTree = "<group>"; };
+		69BDCC5D180F16A200B0965F /* TodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoCell.h; sourceTree = "<group>"; };
+		69BDCC5E180F16A200B0965F /* TodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoCell.m; sourceTree = "<group>"; };
+		69BDCC60180F2DE100B0965F /* TodoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,9 @@
 				69BDCC58180E531100B0965F /* TodoListController.h */,
 				69BDCC59180E531100B0965F /* TodoListController.m */,
 				69BDCC5A180E531100B0965F /* TodoListController.xib */,
+				69BDCC5D180F16A200B0965F /* TodoCell.h */,
+				69BDCC5E180F16A200B0965F /* TodoCell.m */,
+				69BDCC60180F2DE100B0965F /* TodoCell.xib */,
 			);
 			path = yatl;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 				69BDCC5C180E531100B0965F /* TodoListController.xib in Resources */,
 				69BDCC34180E52EE00B0965F /* InfoPlist.strings in Resources */,
 				69BDCC3C180E52EE00B0965F /* Images.xcassets in Resources */,
+				69BDCC61180F2DE100B0965F /* TodoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +260,7 @@
 				69BDCC5B180E531100B0965F /* TodoListController.m in Sources */,
 				69BDCC3A180E52EE00B0965F /* AppDelegate.m in Sources */,
 				69BDCC36180E52EE00B0965F /* main.m in Sources */,
+				69BDCC5F180F16A200B0965F /* TodoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
