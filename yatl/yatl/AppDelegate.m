@@ -2,20 +2,27 @@
 //  AppDelegate.m
 //  yatl
 //
-//  Created by Philip James on 10/14/13.
+//  Created by Philip James on 10/15/13.
 //  Copyright (c) 2013 Philip James. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "TodoListController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    TodoListController *todoListController = [[TodoListController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:todoListController];
+    self.window.rootViewController = nc;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
