@@ -116,7 +116,7 @@
 }
 
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone target:self action:@selector(onDoneButton)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone target:self action:@selector(onDone)];
     self.navigationItem.leftBarButtonItem = nil;
     return YES;
 }
@@ -125,7 +125,7 @@
     return YES;
 }
 
-- (void) onDoneButton {
+- (void) onDone {
     self.navigationItem.rightBarButtonItem = self.addButton;
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     [self.view endEditing:YES];
