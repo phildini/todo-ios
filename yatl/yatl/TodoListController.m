@@ -11,6 +11,8 @@
 
 @interface TodoListController ()
 
+@property (nonatomic, strong) UIBarButtonItem *addButton;
+
 @end
 
 @implementation TodoListController
@@ -35,8 +37,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTodo)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    self.addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTodo)];
+    self.navigationItem.rightBarButtonItem = self.addButton;
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.todos = [[NSMutableArray alloc] initWithObjects:@"Make todo app", @"Submit to app store", @"Profit", nil];
     self.tableView.delegate = self;
@@ -70,7 +72,8 @@
     TodoCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
 //    cell.textLabel.text = [self.todos objectAtIndex:indexPath.row];
-    cell.todoLabel.text = [self.todos objectAtIndex:indexPath.row];
+    cell.todoField.text = [self.todos objectAtIndex:indexPath.row];
+    cell.todoField.delegate = self;
     return cell;
 }
 
@@ -112,32 +115,19 @@
     [self.todos insertObject:todo atIndex:toIndexPath.row];
 }
 
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
+- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone target:self action:@selector(onDoneButton)];
+    self.navigationItem.leftBarButtonItem = nil;
     return YES;
 }
-*/
 
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+- (BOOL) textFieldShouldEndEditing:(UITextField *)textField {
+    return YES;
 }
- 
- */
 
+- (void) onDoneButton {
+    self.navigationItem.rightBarButtonItem = self.addButton;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    [self.view endEditing:YES];
+}
 @end

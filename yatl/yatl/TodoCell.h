@@ -10,6 +10,6 @@
 
 @interface TodoCell : UITableViewCell
 
-@property (nonatomic, weak) IBOutlet UILabel *todoLabel;
+@property (nonatomic, weak) IBOutlet UITextField *todoField;
 
 @end

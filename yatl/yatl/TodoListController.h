@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TodoListController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TodoListController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) NSMutableArray *todos;
 
 @end
