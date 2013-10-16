@@ -35,7 +35,9 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTodo)];
+    self.navigationItem.rightBarButtonItem = addButton;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.todos = [[NSMutableArray alloc] initWithObjects:@"Make todo app", @"Submit to app store", @"Profit", nil];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -95,13 +97,21 @@
     }   
 }
 
+- (void)addTodo{
+    [self.todos insertObject:@"" atIndex:0];
+    [self.tableView reloadData];
+}
 
-/*
+
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    NSObject *todo = [self.todos objectAtIndex:fromIndexPath.row];
+    [self.todos removeObjectAtIndex:fromIndexPath.row];
+    [self.todos insertObject:todo atIndex:toIndexPath.row];
 }
-*/
+
 
 /*
 // Override to support conditional rearranging of the table view.
